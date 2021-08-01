@@ -35,7 +35,7 @@ export const Home = () => {
   };
   return (
     <div className="home-page">
-      <h1> Welcome to Todo</h1>
+      <h1> Image Search App Using Datastax Astra</h1>
       <div className="search-area">
         <input
           className="search-text"
