@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import searchIcon from "./search-icon.jpg";
 import "./Home.css";
 import axios from "axios";
-
-const ASTRA_DB_ID = "3d0ec803-5233-4844-92b6-2d666f44f92b";
-const ASTRA_DB_REGION = "us-west-2";
-const ASTRA_DB_KEYSPACE = "img_search";
-const ASTRA_DB_TABLE = "images";
-const ASTRA_DB_APPLICATION_TOKEN =
-  "AstraCS:ZrMJOcvyswTqNTZHSZaCLOOh:5189077f7825d514ba8c8e3cd66c24c0c6ccb1738aacdac354b693266f80ad99";
+import {ASTRA_DB_ID, ASTRA_DB_REGION, ASTRA_DB_KEYSPACE, ASTRA_DB_TABLE} from "./AstraDetails" ;
+import {ASTRA_DB_APPLICATION_TOKEN} from "./Auth" ;
 
 export const Home = () => {
   const [query, setQuery] = useState("");
