@@ -2,8 +2,18 @@ import React, { useState } from "react";
 import searchIcon from "./search-icon.jpg";
 import "./Home.css";
 import axios from "axios";
-import {ASTRA_DB_ID, ASTRA_DB_REGION, ASTRA_DB_KEYSPACE, ASTRA_DB_TABLE} from "./AstraDetails" ;
-import {ASTRA_DB_APPLICATION_TOKEN} from "./Auth" ;
+import {
+  ASTRA_DB_ID,
+  ASTRA_DB_REGION,
+  ASTRA_DB_KEYSPACE,
+  ASTRA_DB_TABLE,
+} from "./AstraDetails";
+import { ASTRA_DB_APPLICATION_TOKEN } from "./Auth";
+import { Input, Space, Row, Col, Card, Typography, Button } from "antd";
+
+const { Search } = Input;
+const { Meta } = Card;
+const { Title } = Typography;
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -26,34 +36,45 @@ export const Home = () => {
       .catch((error) => {
         console.error(error);
       });
-    return <p>hello</p>;
   };
   return (
     <div className="home-page">
-      <h1> Image Search App Using Datastax Astra</h1>
-      <div className="search-area">
-        <input
-          className="search-text"
-          type="text"
-          placeholder="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-
-        <img className="search-icon" src={searchIcon} onClick={searchPhotos} />
+      <Title className="title">Image Search App Using Datastax Astra</Title>
+      <div>
+        <Row>
+          <Col span={12} offset={6}>
+            <Search
+              placeholder="Search ..."
+              allowClear
+              enterButton="Search"
+              size="large"
+              onChange={(e) => setQuery(e.target.value)}
+              onSearch={searchPhotos}
+            />
+          </Col>
+        </Row>
       </div>
-      <div className="card-list">
-        {results.map((result) => (
-          <div className="card" key={result.id}>
-            <img
-              className="card--image"
-              alt={result.src}
-              src={result.image_url}
-              width="50%"
-              height="50%"></img>
-            <span>{result.type}</span>
-          </div>
-        ))}{" "}
+
+      <div className="images-container">
+        <Row gutter={[32, 32]}>
+          {results.map((result) => (
+            <Col span={8}>
+              <Card
+                hoverable
+                cover={<img alt={result.src} src={result.image_url} />}>
+                <Meta title={result.type} />
+                <Space
+                  direction="horizontal"
+                  align="center"
+                  size={[16, 64]}
+                  wrap>
+                  <Button primary>Danger Default</Button>
+                  <Button danger>Danger Default</Button>
+                </Space>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );
