@@ -44,7 +44,7 @@ export const Home = () => {
         <Row>
           <Col span={12} offset={6}>
             <Search
-              placeholder="Search for Image (cats, dogs, apples etc)"
+              placeholder="Search for Image (cats, dogs, apples etc)."
               allowClear
               enterButton="Search"
               size="large"
