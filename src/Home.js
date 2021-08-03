@@ -44,7 +44,7 @@ export const Home = () => {
         <Row>
           <Col span={12} offset={6}>
             <Search
-              placeholder="Search ..."
+              placeholder="Search for Image (cats, dogs, apples etc)"
               allowClear
               enterButton="Search"
               size="large"
@@ -68,8 +68,8 @@ export const Home = () => {
                   align="center"
                   size={[16, 64]}
                   wrap>
-                  <Button primary>Danger Default</Button>
-                  <Button danger>Danger Default</Button>
+                  <Button primary>Update Name</Button>
+                  <Button danger>Delete Image</Button>
                 </Space>
               </Card>
             </Col>
