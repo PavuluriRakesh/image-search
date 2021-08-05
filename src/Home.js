@@ -67,7 +67,7 @@ export const Home = () => {
       .catch((error) => {
         console.error(error);
       });
-      setTimeout(searchPhotos, 500);
+      setTimeout(searchPhotos, 250);
       handleCancel();
   };
 
@@ -89,7 +89,7 @@ export const Home = () => {
         },
       }
     );
-    setTimeout(searchPhotos, 500);
+    setTimeout(searchPhotos, 250);
     handleCancel();
   };
 
