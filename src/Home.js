@@ -67,7 +67,8 @@ export const Home = () => {
       .catch((error) => {
         console.error(error);
       });
-    searchPhotos();
+      setTimeout(searchPhotos, 500);
+      handleCancel();
   };
 
   const showModal = (imageId, imageName) => {
@@ -88,7 +89,7 @@ export const Home = () => {
         },
       }
     );
-    setInterval(searchPhotos(), 500);
+    setTimeout(searchPhotos, 500);
     handleCancel();
   };
 
